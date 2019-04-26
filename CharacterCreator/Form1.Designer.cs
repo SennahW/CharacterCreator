@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.lblName = new System.Windows.Forms.Label();
             this.txtBoxName = new System.Windows.Forms.TextBox();
@@ -47,8 +48,15 @@
             this.lblInteligens = new System.Windows.Forms.Label();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.btnOpenFile = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sfdSave = new System.Windows.Forms.SaveFileDialog();
+            this.ofdOpen = new System.Windows.Forms.OpenFileDialog();
+            this.picBoxPortrait = new System.Windows.Forms.PictureBox();
+            this.btnPortraitPrev = new System.Windows.Forms.Button();
+            this.btnPortraitNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.grpBoxGender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortrait)).BeginInit();
             this.SuspendLayout();
             // 
             // lblName
@@ -68,7 +76,6 @@
             this.txtBoxName.Name = "txtBoxName";
             this.txtBoxName.Size = new System.Drawing.Size(132, 22);
             this.txtBoxName.TabIndex = 1;
-            this.txtBoxName.Text = "9";
             // 
             // grpBoxGender
             // 
@@ -82,6 +89,7 @@
             this.grpBoxGender.TabIndex = 2;
             this.grpBoxGender.TabStop = false;
             this.grpBoxGender.Text = "Gender";
+            this.grpBoxGender.Enter += new System.EventHandler(this.grpBoxGender_Enter);
             // 
             // rdoBtnFemale
             // 
@@ -94,6 +102,7 @@
             this.rdoBtnFemale.TabStop = true;
             this.rdoBtnFemale.Text = "Female";
             this.rdoBtnFemale.UseVisualStyleBackColor = true;
+            this.rdoBtnFemale.CheckedChanged += new System.EventHandler(this.rdoBtnFemale_CheckedChanged);
             // 
             // rdoBtnMale
             // 
@@ -106,6 +115,7 @@
             this.rdoBtnMale.TabStop = true;
             this.rdoBtnMale.Text = "Male";
             this.rdoBtnMale.UseVisualStyleBackColor = true;
+            this.rdoBtnMale.CheckedChanged += new System.EventHandler(this.rdoBtnMale_CheckedChanged);
             // 
             // btnPowerDown
             // 
@@ -223,11 +233,59 @@
             this.btnOpenFile.UseVisualStyleBackColor = true;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(336, 478);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "STREAMWRITER";
+            // 
+            // ofdOpen
+            // 
+            this.ofdOpen.FileName = "openFileDialog1";
+            // 
+            // picBoxPortrait
+            // 
+            this.picBoxPortrait.Image = ((System.Drawing.Image)(resources.GetObject("picBoxPortrait.Image")));
+            this.picBoxPortrait.Location = new System.Drawing.Point(43, 240);
+            this.picBoxPortrait.Name = "picBoxPortrait";
+            this.picBoxPortrait.Size = new System.Drawing.Size(220, 220);
+            this.picBoxPortrait.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoxPortrait.TabIndex = 16;
+            this.picBoxPortrait.TabStop = false;
+            this.picBoxPortrait.Click += new System.EventHandler(this.picBoxPortrait_Click);
+            // 
+            // btnPortraitPrev
+            // 
+            this.btnPortraitPrev.Location = new System.Drawing.Point(339, 240);
+            this.btnPortraitPrev.Name = "btnPortraitPrev";
+            this.btnPortraitPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPortraitPrev.TabIndex = 17;
+            this.btnPortraitPrev.Text = "Previous";
+            this.btnPortraitPrev.UseVisualStyleBackColor = true;
+            this.btnPortraitPrev.Click += new System.EventHandler(this.btnPortraitPrev_Click);
+            // 
+            // btnPortraitNext
+            // 
+            this.btnPortraitNext.Location = new System.Drawing.Point(467, 240);
+            this.btnPortraitNext.Name = "btnPortraitNext";
+            this.btnPortraitNext.Size = new System.Drawing.Size(75, 23);
+            this.btnPortraitNext.TabIndex = 18;
+            this.btnPortraitNext.Text = "Next";
+            this.btnPortraitNext.UseVisualStyleBackColor = true;
+            this.btnPortraitNext.Click += new System.EventHandler(this.btnPortraitNext_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnPortraitNext);
+            this.Controls.Add(this.btnPortraitPrev);
+            this.Controls.Add(this.picBoxPortrait);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOpenFile);
             this.Controls.Add(this.btnSaveFile);
             this.Controls.Add(this.lblInteligens);
@@ -249,6 +307,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.grpBoxGender.ResumeLayout(false);
             this.grpBoxGender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxPortrait)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,6 +333,12 @@
         private System.Windows.Forms.Label lblInteligens;
         private System.Windows.Forms.Button btnSaveFile;
         private System.Windows.Forms.Button btnOpenFile;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.SaveFileDialog sfdSave;
+        private System.Windows.Forms.OpenFileDialog ofdOpen;
+        private System.Windows.Forms.PictureBox picBoxPortrait;
+        private System.Windows.Forms.Button btnPortraitPrev;
+        private System.Windows.Forms.Button btnPortraitNext;
     }
 }
 

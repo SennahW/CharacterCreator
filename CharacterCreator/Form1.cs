@@ -7,21 +7,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CharacterCreator
 {
     public partial class frmMain : Form
     {
-        float CharateristisPoints = 40;
-        float PowerPoints = 0;
-        float InteligensPoints = 0;
-        float AgilityPoints = 0;
-        
+        int CharateristisPoints = 40;
+        int PowerPoints = 0;
+        int InteligensPoints = 0;
+        int AgilityPoints = 0;
+        int Gender; // 0 = female; 1 = male
+        int CurrentPortrait;
+        Image[] PortraitsFemale = new Image[10];
+        Image[] PortraitsMale = new Image[10];
+
+
 
         public frmMain()
         {
             InitializeComponent();
+            SetImageArray();
             UpdateValues();
+        }
+        private void SetImageArray()
+        {
+            PortraitsFemale[0] = Image.FromFile(@"..\..\Images\F_portrait01.jpg");
+            PortraitsFemale[1] = Image.FromFile(@"..\..\Images\F_portrait02.jpg");
+            PortraitsFemale[2] = Image.FromFile(@"..\..\Images\F_portrait03.jpg");
+            PortraitsFemale[3] = Image.FromFile(@"..\..\Images\F_portrait04.jpg");
+            PortraitsFemale[4] = Image.FromFile(@"..\..\Images\F_portrait05.jpg");
+            PortraitsFemale[5] = Image.FromFile(@"..\..\Images\F_portrait06.jpg");
+            PortraitsFemale[6] = Image.FromFile(@"..\..\Images\F_portrait07.jpg");
+            PortraitsFemale[7] = Image.FromFile(@"..\..\Images\F_portrait08.jpg");
+            PortraitsFemale[8] = Image.FromFile(@"..\..\Images\F_portrait09.jpg");
+            PortraitsFemale[9] = Image.FromFile(@"..\..\Images\F_portrait10.jpg");
+            PortraitsMale[0] = Image.FromFile(@"..\..\Images\M_portrait01.jpg");
+            PortraitsMale[1] = Image.FromFile(@"..\..\Images\M_portrait02.jpg");
+            PortraitsMale[2] = Image.FromFile(@"..\..\Images\M_portrait03.jpg");
+            PortraitsMale[3] = Image.FromFile(@"..\..\Images\M_portrait04.jpg");
+            PortraitsMale[4] = Image.FromFile(@"..\..\Images\M_portrait05.jpg");
+            PortraitsMale[5] = Image.FromFile(@"..\..\Images\M_portrait06.jpg");
+            PortraitsMale[6] = Image.FromFile(@"..\..\Images\M_portrait07.jpg");
+            PortraitsMale[7] = Image.FromFile(@"..\..\Images\M_portrait08.jpg");
+            PortraitsMale[8] = Image.FromFile(@"..\..\Images\M_portrait09.jpg");
+            PortraitsMale[9] = Image.FromFile(@"..\..\Images\M_portrait10.jpg");
         }
 
         private void btnPowerDown_Click(object sender, EventArgs e)
@@ -90,30 +120,144 @@ namespace CharacterCreator
             lblAgility.Text = "Agility: " + AgilityPoints.ToString();
             lblInteligens.Text = "Inteligens: " + InteligensPoints.ToString();
             lblCharacteristicsPoints.Text = "Points to spend: " + CharateristisPoints.ToString();
+            if (Gender == 0)
+            {
+                rdoBtnFemale.Checked = true;
+                rdoBtnMale.Checked = false;
+                picBoxPortrait.Image = PortraitsFemale[CurrentPortrait];
+            }
+            else if (Gender == 1)
+            {
+                rdoBtnFemale.Checked = false;
+                rdoBtnMale.Checked = true;
+                picBoxPortrait.Image = PortraitsMale[CurrentPortrait];
+
+            }
+        }
+        
+        private void UpdatePicBox()
+        {
+            if (Gender == 0)
+            {
+                picBoxPortrait.Image = PortraitsFemale[CurrentPortrait];
+            }
+            else if (Gender == 1)
+            {
+                picBoxPortrait.Image = PortraitsMale[CurrentPortrait];
+            }
         }
 
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
-           
+            sfdSave.ShowDialog();
+            if (sfdSave.FileName != null)
+            {
+                StreamWriter sw = new StreamWriter(sfdSave.FileName);
+                sw.WriteLine(CharateristisPoints);
+                sw.WriteLine(AgilityPoints);
+                sw.WriteLine(InteligensPoints);
+                sw.WriteLine(PowerPoints);
+                sw.WriteLine(txtBoxName.Text);
+                sw.WriteLine(Gender);
+                sw.Close();
+            }
         }
-        /*
-        // Öppna open file dialog så att användaren för välja en fil att läsa ifrån
-        openFileDialog1.ShowDialog();
-        // Skriv innehållet från den valda filen till en textbox
-        textBox1.Text = File.ReadAllText(openFileDialog1.FileName);
-        Exemplet ovan visar hur man med hjälp av en openFileDialog kan få användaren att öppna
-        en fil (exempelvis textfil) och sedan skriva innehållet av den in i en textbox.
-        // Öppna save file dialog så att användaren för välja en fil att spara till
-        saveFileDialog1.ShowDialog();
-        // Skriv innehållet från en textbox till den valda filen
-        File.WriteAllText(saveFileDialog1.FileName, textBox1.Text);
-        I detta exempel får användaren välja en fil via en saveFileDialog som en text ska sparas till.
-        Därefter sparas innehållet i en textbox till denna fil. Observera att eventuellt innehåll som
-        fanns i filen tidigare kommer att skrivas över.
-        */
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
+            ofdOpen.ShowDialog();
+            
+            if (ofdOpen.FileName != null)
+            {
+                StreamReader sr = new StreamReader(ofdOpen.FileName);
+                CharateristisPoints = Convert.ToInt32(sr.ReadLine());
+                AgilityPoints = Convert.ToInt32(sr.ReadLine());
+                InteligensPoints = Convert.ToInt32(sr.ReadLine());
+                PowerPoints = Convert.ToInt32(sr.ReadLine());
+                txtBoxName.Text = sr.ReadLine();
+                Gender = Convert.ToInt32(sr.ReadLine());
+                sr.Close();
+                UpdateValues();
+
+            }
+        }
+
+        private void rdoBtnFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            Gender = 0;
+            UpdatePicBox();
+        }
+
+        private void grpBoxGender_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoBtnMale_CheckedChanged(object sender, EventArgs e)
+        {
+            Gender = 1;
+            UpdatePicBox();
+        }
+
+        private void picBoxPortrait_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPortraitNext_Click(object sender, EventArgs e)
+        {
+            if (rdoBtnFemale.Checked)
+            {
+                if (CurrentPortrait >= PortraitsFemale.Length - 1)
+                {
+                    CurrentPortrait = 0;
+                }
+                else
+                {
+                    CurrentPortrait++;
+                }
+            }
+            else if (rdoBtnMale.Checked)
+            {
+                if (CurrentPortrait >= PortraitsMale.Length - 1)
+                {
+                    CurrentPortrait = 0;
+                }
+                else
+                {
+                    CurrentPortrait++;
+                }
+            }
+            UpdateValues();
+
+        }
+
+        private void btnPortraitPrev_Click(object sender, EventArgs e)
+        {
+            if (rdoBtnFemale.Checked)
+            {
+                if (CurrentPortrait <= 0)
+                {
+                    CurrentPortrait = PortraitsFemale.Length - 1;
+                }
+                else
+                {
+                    CurrentPortrait--;
+                }
+            }
+            else if (rdoBtnMale.Checked)
+            {
+                if (CurrentPortrait >= 0)
+                {
+                    CurrentPortrait = PortraitsMale.Length - 1;
+                }
+                else
+                {
+                    CurrentPortrait--;
+                }
+            }
+            UpdateValues();
+
 
         }
     }
