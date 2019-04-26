@@ -48,7 +48,6 @@
             this.lblInteligens = new System.Windows.Forms.Label();
             this.btnSaveFile = new System.Windows.Forms.Button();
             this.btnOpenFile = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.sfdSave = new System.Windows.Forms.SaveFileDialog();
             this.ofdOpen = new System.Windows.Forms.OpenFileDialog();
             this.picBoxPortrait = new System.Windows.Forms.PictureBox();
@@ -62,42 +61,36 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(40, 34);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Location = new System.Drawing.Point(30, 28);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(81, 17);
+            this.lblName.Size = new System.Drawing.Size(61, 13);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Enter name";
             // 
             // txtBoxName
             // 
-            this.txtBoxName.Location = new System.Drawing.Point(144, 34);
-            this.txtBoxName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBoxName.Location = new System.Drawing.Point(108, 28);
             this.txtBoxName.Name = "txtBoxName";
-            this.txtBoxName.Size = new System.Drawing.Size(132, 22);
+            this.txtBoxName.Size = new System.Drawing.Size(100, 20);
             this.txtBoxName.TabIndex = 1;
             // 
             // grpBoxGender
             // 
             this.grpBoxGender.Controls.Add(this.rdoBtnFemale);
             this.grpBoxGender.Controls.Add(this.rdoBtnMale);
-            this.grpBoxGender.Location = new System.Drawing.Point(44, 94);
-            this.grpBoxGender.Margin = new System.Windows.Forms.Padding(4);
+            this.grpBoxGender.Location = new System.Drawing.Point(33, 76);
             this.grpBoxGender.Name = "grpBoxGender";
-            this.grpBoxGender.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBoxGender.Size = new System.Drawing.Size(267, 123);
+            this.grpBoxGender.Size = new System.Drawing.Size(200, 100);
             this.grpBoxGender.TabIndex = 2;
             this.grpBoxGender.TabStop = false;
             this.grpBoxGender.Text = "Gender";
-            this.grpBoxGender.Enter += new System.EventHandler(this.grpBoxGender_Enter);
             // 
             // rdoBtnFemale
             // 
             this.rdoBtnFemale.AutoSize = true;
-            this.rdoBtnFemale.Location = new System.Drawing.Point(132, 57);
-            this.rdoBtnFemale.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoBtnFemale.Location = new System.Drawing.Point(99, 46);
             this.rdoBtnFemale.Name = "rdoBtnFemale";
-            this.rdoBtnFemale.Size = new System.Drawing.Size(75, 21);
+            this.rdoBtnFemale.Size = new System.Drawing.Size(59, 17);
             this.rdoBtnFemale.TabIndex = 1;
             this.rdoBtnFemale.TabStop = true;
             this.rdoBtnFemale.Text = "Female";
@@ -107,10 +100,9 @@
             // rdoBtnMale
             // 
             this.rdoBtnMale.AutoSize = true;
-            this.rdoBtnMale.Location = new System.Drawing.Point(9, 57);
-            this.rdoBtnMale.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoBtnMale.Location = new System.Drawing.Point(7, 46);
             this.rdoBtnMale.Name = "rdoBtnMale";
-            this.rdoBtnMale.Size = new System.Drawing.Size(59, 21);
+            this.rdoBtnMale.Size = new System.Drawing.Size(48, 17);
             this.rdoBtnMale.TabIndex = 0;
             this.rdoBtnMale.TabStop = true;
             this.rdoBtnMale.Text = "Male";
@@ -119,9 +111,10 @@
             // 
             // btnPowerDown
             // 
-            this.btnPowerDown.Location = new System.Drawing.Point(640, 126);
+            this.btnPowerDown.Location = new System.Drawing.Point(480, 102);
+            this.btnPowerDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPowerDown.Name = "btnPowerDown";
-            this.btnPowerDown.Size = new System.Drawing.Size(75, 23);
+            this.btnPowerDown.Size = new System.Drawing.Size(56, 19);
             this.btnPowerDown.TabIndex = 3;
             this.btnPowerDown.Text = "-";
             this.btnPowerDown.UseVisualStyleBackColor = true;
@@ -129,9 +122,10 @@
             // 
             // btnPowerUp
             // 
-            this.btnPowerUp.Location = new System.Drawing.Point(925, 126);
+            this.btnPowerUp.Location = new System.Drawing.Point(694, 102);
+            this.btnPowerUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPowerUp.Name = "btnPowerUp";
-            this.btnPowerUp.Size = new System.Drawing.Size(75, 23);
+            this.btnPowerUp.Size = new System.Drawing.Size(56, 19);
             this.btnPowerUp.TabIndex = 4;
             this.btnPowerUp.Text = "+";
             this.btnPowerUp.UseVisualStyleBackColor = true;
@@ -139,9 +133,10 @@
             // 
             // btnAgilityDown
             // 
-            this.btnAgilityDown.Location = new System.Drawing.Point(640, 193);
+            this.btnAgilityDown.Location = new System.Drawing.Point(480, 157);
+            this.btnAgilityDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgilityDown.Name = "btnAgilityDown";
-            this.btnAgilityDown.Size = new System.Drawing.Size(75, 23);
+            this.btnAgilityDown.Size = new System.Drawing.Size(56, 19);
             this.btnAgilityDown.TabIndex = 5;
             this.btnAgilityDown.Text = "-";
             this.btnAgilityDown.UseVisualStyleBackColor = true;
@@ -149,9 +144,10 @@
             // 
             // btnAgilityUp
             // 
-            this.btnAgilityUp.Location = new System.Drawing.Point(925, 193);
+            this.btnAgilityUp.Location = new System.Drawing.Point(694, 157);
+            this.btnAgilityUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgilityUp.Name = "btnAgilityUp";
-            this.btnAgilityUp.Size = new System.Drawing.Size(75, 23);
+            this.btnAgilityUp.Size = new System.Drawing.Size(56, 19);
             this.btnAgilityUp.TabIndex = 6;
             this.btnAgilityUp.Text = "+";
             this.btnAgilityUp.UseVisualStyleBackColor = true;
@@ -159,9 +155,10 @@
             // 
             // btnInteligensDown
             // 
-            this.btnInteligensDown.Location = new System.Drawing.Point(640, 259);
+            this.btnInteligensDown.Location = new System.Drawing.Point(480, 210);
+            this.btnInteligensDown.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInteligensDown.Name = "btnInteligensDown";
-            this.btnInteligensDown.Size = new System.Drawing.Size(75, 23);
+            this.btnInteligensDown.Size = new System.Drawing.Size(56, 19);
             this.btnInteligensDown.TabIndex = 7;
             this.btnInteligensDown.Text = "-";
             this.btnInteligensDown.UseVisualStyleBackColor = true;
@@ -169,9 +166,10 @@
             // 
             // btnInteligensUp
             // 
-            this.btnInteligensUp.Location = new System.Drawing.Point(925, 259);
+            this.btnInteligensUp.Location = new System.Drawing.Point(694, 210);
+            this.btnInteligensUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInteligensUp.Name = "btnInteligensUp";
-            this.btnInteligensUp.Size = new System.Drawing.Size(75, 23);
+            this.btnInteligensUp.Size = new System.Drawing.Size(56, 19);
             this.btnInteligensUp.TabIndex = 8;
             this.btnInteligensUp.Text = "+";
             this.btnInteligensUp.UseVisualStyleBackColor = true;
@@ -180,44 +178,49 @@
             // lblCharacteristicsPoints
             // 
             this.lblCharacteristicsPoints.AutoSize = true;
-            this.lblCharacteristicsPoints.Location = new System.Drawing.Point(821, 34);
+            this.lblCharacteristicsPoints.Location = new System.Drawing.Point(616, 28);
+            this.lblCharacteristicsPoints.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCharacteristicsPoints.Name = "lblCharacteristicsPoints";
-            this.lblCharacteristicsPoints.Size = new System.Drawing.Size(106, 17);
+            this.lblCharacteristicsPoints.Size = new System.Drawing.Size(80, 13);
             this.lblCharacteristicsPoints.TabIndex = 9;
             this.lblCharacteristicsPoints.Text = "Points to spend";
             // 
             // lblPower
             // 
             this.lblPower.AutoSize = true;
-            this.lblPower.Location = new System.Drawing.Point(793, 126);
+            this.lblPower.Location = new System.Drawing.Point(595, 102);
+            this.lblPower.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPower.Name = "lblPower";
-            this.lblPower.Size = new System.Drawing.Size(47, 17);
+            this.lblPower.Size = new System.Drawing.Size(37, 13);
             this.lblPower.TabIndex = 10;
             this.lblPower.Text = "Power";
             // 
             // lblAgility
             // 
             this.lblAgility.AutoSize = true;
-            this.lblAgility.Location = new System.Drawing.Point(796, 193);
+            this.lblAgility.Location = new System.Drawing.Point(597, 157);
+            this.lblAgility.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAgility.Name = "lblAgility";
-            this.lblAgility.Size = new System.Drawing.Size(45, 17);
+            this.lblAgility.Size = new System.Drawing.Size(34, 13);
             this.lblAgility.TabIndex = 11;
             this.lblAgility.Text = "Agility";
             // 
             // lblInteligens
             // 
             this.lblInteligens.AutoSize = true;
-            this.lblInteligens.Location = new System.Drawing.Point(796, 264);
+            this.lblInteligens.Location = new System.Drawing.Point(597, 214);
+            this.lblInteligens.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInteligens.Name = "lblInteligens";
-            this.lblInteligens.Size = new System.Drawing.Size(68, 17);
+            this.lblInteligens.Size = new System.Drawing.Size(52, 13);
             this.lblInteligens.TabIndex = 12;
             this.lblInteligens.Text = "Inteligens";
             // 
             // btnSaveFile
             // 
-            this.btnSaveFile.Location = new System.Drawing.Point(925, 374);
+            this.btnSaveFile.Location = new System.Drawing.Point(694, 304);
+            this.btnSaveFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveFile.Name = "btnSaveFile";
-            this.btnSaveFile.Size = new System.Drawing.Size(116, 23);
+            this.btnSaveFile.Size = new System.Drawing.Size(87, 19);
             this.btnSaveFile.TabIndex = 13;
             this.btnSaveFile.Text = "Save file";
             this.btnSaveFile.UseVisualStyleBackColor = true;
@@ -225,22 +228,14 @@
             // 
             // btnOpenFile
             // 
-            this.btnOpenFile.Location = new System.Drawing.Point(765, 374);
+            this.btnOpenFile.Location = new System.Drawing.Point(574, 304);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(116, 23);
+            this.btnOpenFile.Size = new System.Drawing.Size(87, 19);
             this.btnOpenFile.TabIndex = 14;
             this.btnOpenFile.Text = "Open File";
             this.btnOpenFile.UseVisualStyleBackColor = true;
             this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(336, 478);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 17);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "STREAMWRITER";
             // 
             // ofdOpen
             // 
@@ -249,19 +244,20 @@
             // picBoxPortrait
             // 
             this.picBoxPortrait.Image = ((System.Drawing.Image)(resources.GetObject("picBoxPortrait.Image")));
-            this.picBoxPortrait.Location = new System.Drawing.Point(43, 240);
+            this.picBoxPortrait.Location = new System.Drawing.Point(32, 195);
+            this.picBoxPortrait.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picBoxPortrait.Name = "picBoxPortrait";
-            this.picBoxPortrait.Size = new System.Drawing.Size(220, 220);
+            this.picBoxPortrait.Size = new System.Drawing.Size(165, 179);
             this.picBoxPortrait.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxPortrait.TabIndex = 16;
             this.picBoxPortrait.TabStop = false;
-            this.picBoxPortrait.Click += new System.EventHandler(this.picBoxPortrait_Click);
             // 
             // btnPortraitPrev
             // 
-            this.btnPortraitPrev.Location = new System.Drawing.Point(339, 240);
+            this.btnPortraitPrev.Location = new System.Drawing.Point(254, 195);
+            this.btnPortraitPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPortraitPrev.Name = "btnPortraitPrev";
-            this.btnPortraitPrev.Size = new System.Drawing.Size(75, 23);
+            this.btnPortraitPrev.Size = new System.Drawing.Size(56, 19);
             this.btnPortraitPrev.TabIndex = 17;
             this.btnPortraitPrev.Text = "Previous";
             this.btnPortraitPrev.UseVisualStyleBackColor = true;
@@ -269,9 +265,10 @@
             // 
             // btnPortraitNext
             // 
-            this.btnPortraitNext.Location = new System.Drawing.Point(467, 240);
+            this.btnPortraitNext.Location = new System.Drawing.Point(350, 195);
+            this.btnPortraitNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPortraitNext.Name = "btnPortraitNext";
-            this.btnPortraitNext.Size = new System.Drawing.Size(75, 23);
+            this.btnPortraitNext.Size = new System.Drawing.Size(56, 19);
             this.btnPortraitNext.TabIndex = 18;
             this.btnPortraitNext.Text = "Next";
             this.btnPortraitNext.UseVisualStyleBackColor = true;
@@ -279,13 +276,12 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnPortraitNext);
             this.Controls.Add(this.btnPortraitPrev);
             this.Controls.Add(this.picBoxPortrait);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnOpenFile);
             this.Controls.Add(this.btnSaveFile);
             this.Controls.Add(this.lblInteligens);
@@ -301,7 +297,6 @@
             this.Controls.Add(this.grpBoxGender);
             this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "Character Creator";
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -333,7 +328,6 @@
         private System.Windows.Forms.Label lblInteligens;
         private System.Windows.Forms.Button btnSaveFile;
         private System.Windows.Forms.Button btnOpenFile;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SaveFileDialog sfdSave;
         private System.Windows.Forms.OpenFileDialog ofdOpen;
         private System.Windows.Forms.PictureBox picBoxPortrait;

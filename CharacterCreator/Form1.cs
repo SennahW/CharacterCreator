@@ -13,12 +13,17 @@ namespace CharacterCreator
 {
     public partial class frmMain : Form
     {
+        //Declaring basic variables for character stats
         int CharateristisPoints = 40;
         int PowerPoints = 0;
         int InteligensPoints = 0;
         int AgilityPoints = 0;
-        int Gender; // 0 = female; 1 = male
+
+        // 0 = female; 1 = male
+        int Gender;
+        //Which portrait in the array
         int CurrentPortrait;
+        //Arrays of male and female portraits.
         Image[] PortraitsFemale = new Image[10];
         Image[] PortraitsMale = new Image[10];
 
@@ -27,11 +32,14 @@ namespace CharacterCreator
         public frmMain()
         {
             InitializeComponent();
+            //Fills the image arrays with pictures.
             SetImageArray();
+            //Updates all the visible stats in creator.
             UpdateValues();
         }
         private void SetImageArray()
         {
+            //Adds portraits to arrays.
             PortraitsFemale[0] = Image.FromFile(@"..\..\Images\F_portrait01.jpg");
             PortraitsFemale[1] = Image.FromFile(@"..\..\Images\F_portrait02.jpg");
             PortraitsFemale[2] = Image.FromFile(@"..\..\Images\F_portrait03.jpg");
@@ -114,6 +122,7 @@ namespace CharacterCreator
             }
         }
 
+        //Method for updating all UI stats and portrait
         private void UpdateValues()
         {
             lblPower.Text = "Power: " + PowerPoints.ToString();
@@ -135,6 +144,7 @@ namespace CharacterCreator
             }
         }
         
+        //Method for updating portrait
         private void UpdatePicBox()
         {
             if (Gender == 0)
@@ -147,6 +157,7 @@ namespace CharacterCreator
             }
         }
 
+        //Method for saving a character
         private void btnSaveFile_Click(object sender, EventArgs e)
         {
             sfdSave.ShowDialog();
@@ -163,6 +174,7 @@ namespace CharacterCreator
             }
         }
 
+        //Method for opening existing character .txt file
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             ofdOpen.ShowDialog();
@@ -188,22 +200,13 @@ namespace CharacterCreator
             UpdatePicBox();
         }
 
-        private void grpBoxGender_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void rdoBtnMale_CheckedChanged(object sender, EventArgs e)
         {
             Gender = 1;
             UpdatePicBox();
         }
 
-        private void picBoxPortrait_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //Method for next portrait
         private void btnPortraitNext_Click(object sender, EventArgs e)
         {
             if (rdoBtnFemale.Checked)
@@ -232,6 +235,7 @@ namespace CharacterCreator
 
         }
 
+        //Method for previous portrait
         private void btnPortraitPrev_Click(object sender, EventArgs e)
         {
             if (rdoBtnFemale.Checked)
@@ -247,7 +251,7 @@ namespace CharacterCreator
             }
             else if (rdoBtnMale.Checked)
             {
-                if (CurrentPortrait >= 0)
+                if (CurrentPortrait <= 0)
                 {
                     CurrentPortrait = PortraitsMale.Length - 1;
                 }
